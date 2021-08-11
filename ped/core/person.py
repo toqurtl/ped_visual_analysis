@@ -25,11 +25,13 @@ def create_exist_range(person):
             )
     person.exist_time_range = time_range["time"]
     person.exist_idx_range = time_range["idx"]
+    return
 
 
 def initialize(person):
     create_pos_info(person)
-    create_exist_range(person)
+    # create_exist_range(person)
+    return
 
 
 class Person(object):
@@ -43,8 +45,8 @@ class Person(object):
         self.finish_pos = None
 
         # time range
-        self.exist_time_range = None
-        self.exist_idx_range = None
+        # self.exist_time_range = None
+        # self.exist_idx_range = None
 
         # initialize
         initialize(self)
@@ -52,6 +54,15 @@ class Person(object):
         
     def measured_data(self, infotype: InfoType):
         return self.scene.measured_data(infotype)[self.person_idx]
+
+
+    @property
+    def exist_time_range(self):
+        return self.scene.person_detected_time[self.person_idx]["time"]
+    
+    @property
+    def exist_idx_range(self):
+        return self.scene.person_detected_time[self.person_idx]["idx"]
 
     @property
     def scene_data_map(self):
