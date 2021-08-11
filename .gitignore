@@ -1,0 +1,23 @@
+# cache
+__pycache__
+
+# IDE
+.vscode
+.idea/
+
+# data
+## video
+*.mkv
+*.mp4
+*.avi
+
+## input/output
+*.csv
+*.xlsx
+*.zip
+
+# test_file
+workspace/
+save/
+playground.py
+testground.py
